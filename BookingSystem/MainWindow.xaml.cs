@@ -58,8 +58,8 @@ namespace BookingSystem
                                                u.UdlejningsId,
                                                u.KundeId,
                                                u.Status,
-                                               fraDato = u.FraDato.Date.ToString(),
-                                               tilDato = u.TilDato.Date.ToString()
+                                               u.FraDato,
+                                               u.TilDato
                                            }).ToList();
         }
 
