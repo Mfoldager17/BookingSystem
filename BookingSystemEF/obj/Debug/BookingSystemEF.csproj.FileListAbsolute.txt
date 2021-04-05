@@ -1,0 +1,12 @@
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemEF\bin\Debug\BookingSystemEF.dll.config
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemEF\bin\Debug\BookingSystemEF.dll
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemEF\bin\Debug\BookingSystemEF.pdb
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemEF\bin\Debug\EntityFramework.dll
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemEF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemEF\bin\Debug\EntityFramework.xml
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemEF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemEF\obj\Debug\BookingSystemEF.csprojAssemblyReference.cache
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemEF\obj\Debug\BookingSystemEF.csproj.CoreCompileInputs.cache
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemEF\obj\Debug\BookingSystemEF.csproj.CopyComplete
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemEF\obj\Debug\BookingSystemEF.dll
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemEF\obj\Debug\BookingSystemEF.pdb

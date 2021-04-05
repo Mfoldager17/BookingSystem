@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BookingSystemDbModelStoreContainer" CdmEntityContainer="BookingSystemDbEntities">
+    <EntitySetMapping Name="Kunde">
+      <EntityTypeMapping TypeName="BookingSystemDbModel.Kunde">
+        <MappingFragment StoreEntitySet="Kunde">
+          <ScalarProperty Name="KundeId" ColumnName="KundeId" />
+          <ScalarProperty Name="Navn" ColumnName="Navn" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Udlejning">
+      <EntityTypeMapping TypeName="BookingSystemDbModel.Udlejning">
+        <MappingFragment StoreEntitySet="Udlejning">
+          <ScalarProperty Name="UdlejningsId" ColumnName="UdlejningsId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="KundeId" ColumnName="KundeId" />
+          <ScalarProperty Name="VærktøjId" ColumnName="VærktøjId" />
+          <ScalarProperty Name="FraDato" ColumnName="FraDato" />
+          <ScalarProperty Name="TilDato" ColumnName="TilDato" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Værktøj">
+      <EntityTypeMapping TypeName="BookingSystemDbModel.Værktøj">
+        <MappingFragment StoreEntitySet="Værktøj">
+          <ScalarProperty Name="VærktøjId" ColumnName="VærktøjId" />
+          <ScalarProperty Name="Værktøjsnavn" ColumnName="Værktøjsnavn" />
+          <ScalarProperty Name="Beskrivelse" ColumnName="Beskrivelse" />
+          <ScalarProperty Name="depositum" ColumnName="depositum" />
+          <ScalarProperty Name="døgnpris" ColumnName="døgnpris" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
