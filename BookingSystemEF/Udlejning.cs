@@ -25,5 +25,16 @@ namespace BookingSystemEF
         public virtual Værktøj Værktøj { get; set; }
 
 
+
+        public double beregnFuldPris()
+        {
+            return Convert.ToDouble(this.udregnPeriode() * Værktøj.døgnpris);
+        }
+
+        private int udregnPeriode()
+        {
+            return (TilDato.Date - FraDato.Date).Days;
+        }
+
     }
 }

@@ -21,51 +21,70 @@ namespace BookingSystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int udlejningsIdTilOpdater = 0;
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void findButton_Click(object sender, RoutedEventArgs e)
         {
             BookingSystemDbEntities db = new BookingSystemDbEntities();
 
-            Kunde kundeFraMail = db.Kunde.ToList().Find(k => k.Email == tbMail.Text);
-
-            // var udlejningerFraEmail = from u in db.Udlejning
-            //                         join k in db.Kunde
-            //                       on u.KundeId equals kundeFromMail.KundeId
-            //                      where u.KundeId == kundeFromMail.KundeId
-            //
-            //join v in db.Værktøj
-            //on u.VærktøjId equals v.VærktøjId
-            //where u.VærktøjId == v.VærktøjId
-
-            //            select new
-            //{
-            //  Navn = k.Navn,
-            //Værktøj = v.Værktøjsnavn,
-            //Udlejningsdato = u.FraDato.ToString(),
-            //Afleveringsdato = u.TilDato.ToString(),
-            //Pris = (u.TilDato.Day - u.FraDato.Day) * v.døgnpris
-            //};
-            //gridUdlejninger.ItemsSource = udlejningerFraEmail.ToList().OrderBy(d => d.Afleveringsdato);
+            Kunde kundeFraMail = db.Kunde.ToList().Find(k => k.Email == tbMail.Text.ToLower().Trim());
 
             gridUdlejninger.ItemsSource = (from u in db.Udlejning
                                            where u.KundeId == kundeFraMail.KundeId
-                                           select new
-                                           {
-                                               u.UdlejningsId,
-                                               u.KundeId,
-                                               u.Status,
-                                               u.FraDato,
-                                               u.TilDato
-                                           }).ToList();
+                                           select u
+                                           ).ToList();
         }
 
         private void gridUdlejninger_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Console.WriteLine(gridUdlejninger.SelectedItem);
+            BookingSystemDbEntities db = new BookingSystemDbEntities();
+
+            if (gridUdlejninger.SelectedItem != null)
+            {
+                Udlejning ul = (Udlejning)gridUdlejninger.SelectedItem;
+                Værktøj værktøj = db.Værktøj.ToList().Find(v => v.VærktøjId == ul.VærktøjId);
+                Kunde kunde = db.Kunde.ToList().Find(k => k.KundeId == ul.KundeId);
+
+                udlejningsIdTilOpdater = ul.UdlejningsId;
+
+                tbUdlejningId.Text = ul.UdlejningsId.ToString();
+                combobox.Text = ul.Status;
+                tbKundeId.Text = ul.KundeId.ToString();
+                tbVærktøjsId.Text = ul.VærktøjId.ToString();
+                tbFraDato.Text = ul.FraDato.Day + "-" + ul.FraDato.Month + "-" + ul.FraDato.Year;
+                tbTilDato.Text = ul.TilDato.Day + "-" + ul.TilDato.Month + "-" + ul.TilDato.Year;
+
+                tbKundeIdFraKunde.Text = kunde.KundeId.ToString();
+                tbKundeNavn.Text = kunde.Navn;
+                tbAdresse.Text = kunde.Adresse;
+                tbEmail.Text = kunde.Email;
+
+                tbVærktøjsIdFraVærktøj.Text = værktøj.VærktøjId.ToString();
+                tbVærktøjsNavn.Text = værktøj.Værktøjsnavn;
+                tbBeskrivelseVærktøj.Text = værktøj.Beskrivelse;
+                tbDepositumVærktøj.Text = værktøj.depositum + ",-";
+                tbDøgnPrisVærktøj.Text = værktøj.døgnpris.ToString();
+
+                tbtotalPris.Text = ul.beregnFuldPris() + ",-";
+            }
+        }
+
+        private void btnOpdaterStatus_Click(object sender, RoutedEventArgs e)
+        {
+            BookingSystemDbEntities db = new BookingSystemDbEntities();
+
+            Udlejning ul = db.Udlejning.ToList().Find(u => u.UdlejningsId == udlejningsIdTilOpdater);
+            Kunde kunde = db.Kunde.ToList().Find(k => k.KundeId == ul.KundeId);
+
+            ul.Status = combobox.Text;
+
+            db.SaveChanges();
+            gridUdlejninger.ItemsSource = db.Udlejning.ToList().FindAll(u => u.KundeId == ul.KundeId);
         }
     }
 }
