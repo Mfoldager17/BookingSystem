@@ -24,8 +24,6 @@ namespace BookingSystemEF
         public virtual Kunde Kunde { get; set; }
         public virtual Værktøj Værktøj { get; set; }
 
-
-
         public double beregnFuldPris()
         {
             return Convert.ToDouble(this.udregnPeriode() * Værktøj.døgnpris);
