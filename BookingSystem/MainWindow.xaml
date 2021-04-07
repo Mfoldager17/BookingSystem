@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookingSystem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1005.714" Width="1035.406">
-    <Grid Background="#FF838383" Margin="0,0,-8,0">
+        Title="MainWindow" Height="877.114" Width="1035.406">
+    <Grid Background="#FF838383" Margin="0,0,-8.2,2.2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="170*" />
             <ColumnDefinition Width="727*" />
@@ -18,49 +18,50 @@
         <TextBox x:Name="tbMail" HorizontalAlignment="Left" Height="26" Margin="53,40,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="190" Grid.ColumnSpan="2" />
         <Label Content="Email" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Height="26" Width="38" />
         <Button x:Name="findButton" Content="Find" HorizontalAlignment="Left" Margin="77,43,0,0" VerticalAlignment="Top" Width="75" Click="findButton_Click" Grid.Column="1" Height="20" />
-        <Label Content="Information:" HorizontalAlignment="Left" Margin="10,563,0,0" VerticalAlignment="Top" Height="53" Width="318" FontSize="30" Grid.ColumnSpan="2" FontWeight="Bold" />
-        <Label Content="Udlejning:" HorizontalAlignment="Left" Margin="128,648,0,0" VerticalAlignment="Top" Height="53" Width="76" FontSize="14" Grid.ColumnSpan="2" FontWeight="Bold" />
-        <TextBox x:Name="tbUdlejningId" HorizontalAlignment="Left" Height="23" Margin="82,679,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Grid.ColumnSpan="2" IsReadOnly="True" />
-        <ComboBox x:Name="combobox" HorizontalAlignment="Left" Margin="82,707,0,0" VerticalAlignment="Top" Width="224" IsEditable="False" Grid.ColumnSpan="2">
+        <Label Content="Information:" HorizontalAlignment="Left" Margin="14,438,0,0" VerticalAlignment="Top" Height="53" Width="318" FontSize="30" Grid.ColumnSpan="2" FontWeight="Bold" />
+        <Label Content="Udlejning:" HorizontalAlignment="Left" Margin="132,523,0,0" VerticalAlignment="Top" Height="53" Width="76" FontSize="14" Grid.ColumnSpan="2" FontWeight="Bold" />
+        <TextBox x:Name="tbUdlejningId" HorizontalAlignment="Left" Height="23" Margin="85,554,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Grid.ColumnSpan="2" IsReadOnly="True" />
+        <ComboBox x:Name="combobox" HorizontalAlignment="Left" Margin="86,582,0,0" VerticalAlignment="Top" Width="224" IsEditable="False" Grid.ColumnSpan="2">
             <ComboBoxItem>reserveret</ComboBoxItem>
             <ComboBoxItem>tilbageleveret</ComboBoxItem>
             <ComboBoxItem>udleveret</ComboBoxItem>
         </ComboBox>
-        <TextBox x:Name="tbKundeId" HorizontalAlignment="Left" Height="23" Margin="82,766,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Grid.ColumnSpan="2" IsReadOnly="True" />
-        <TextBox x:Name="tbVærktøjsId" HorizontalAlignment="Left" Height="23" Margin="82,794,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Grid.ColumnSpan="2" IsReadOnly="True" />
-        <TextBox x:Name="tbTilDato" HorizontalAlignment="Left" Height="23" Margin="82,822,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Grid.ColumnSpan="2" IsReadOnly="True" />
-        <TextBox x:Name="tbFraDato" HorizontalAlignment="Left" Height="23" Margin="82,850,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Grid.ColumnSpan="2" IsReadOnly="True" />
-        <Label HorizontalAlignment="Left" Margin="3,675,0,0" VerticalAlignment="Top" Height="10" Width="10" />
-        <Label Content="UdlejningsId:" HorizontalAlignment="Left" Margin="3,675,0,0" VerticalAlignment="Top" Height="26" Width="79" />
-        <Label Content="Status:" HorizontalAlignment="Left" Margin="3,701,0,0" VerticalAlignment="Top" Height="26" Width="45" />
-        <Label Content="KundeId:" HorizontalAlignment="Left" Margin="3,762,0,0" VerticalAlignment="Top" Height="26" Width="57" />
-        <Label Content="VærktøjsId:" HorizontalAlignment="Left" Margin="3,789,0,0" VerticalAlignment="Top" Height="26" Width="69" />
-        <Label Content="Fra Dato:" HorizontalAlignment="Left" Margin="3,819,0,0" VerticalAlignment="Top" Height="26" Width="58" />
-        <Label Content="UdlejningsId:" HorizontalAlignment="Left" Margin="3,846,0,0" VerticalAlignment="Top" Height="26" Width="79" />
-        <Label Content="Kunde:" HorizontalAlignment="Left" Margin="294,648,0,0" VerticalAlignment="Top" Height="53" Width="76" FontSize="14" Grid.Column="1" FontWeight="Bold" />
-        <TextBox x:Name="tbKundeIdFraKunde" HorizontalAlignment="Left" Height="23" Margin="248,678,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" />
-        <TextBox x:Name="tbKundeNavn" HorizontalAlignment="Left" Height="23" Margin="248,706,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" />
-        <TextBox x:Name="tbAdresse" HorizontalAlignment="Left" Height="23" Margin="248,734,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" />
-        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="248,762,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" />
-        <Label HorizontalAlignment="Left" Margin="169,675,0,0" VerticalAlignment="Top" Grid.Column="1" Height="10" Width="10" />
-        <Label Content="KundeId:" HorizontalAlignment="Left" Margin="169,675,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="57" />
-        <Label Content="Navn:" HorizontalAlignment="Left" Margin="169,701,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="40" />
-        <Label Content="Adresse:" HorizontalAlignment="Left" Margin="169,730,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="54" />
-        <Label Content="Email:" HorizontalAlignment="Left" Margin="169,757,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="41" />
-        <Label Content="Værktøj:" HorizontalAlignment="Left" Margin="646,648,0,0" VerticalAlignment="Top" Height="53" Width="76" FontSize="14" Grid.Column="1" FontWeight="Bold" />
-        <TextBox x:Name="tbVærktøjsIdFraVærktøj" HorizontalAlignment="Left" Height="23" Margin="600,678,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2" />
-        <TextBox x:Name="tbVærktøjsNavn" HorizontalAlignment="Left" Height="23" Margin="600,706,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2" />
-        <TextBox x:Name="tbBeskrivelseVærktøj" HorizontalAlignment="Left" Height="51" Margin="600,734,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2" />
-        <TextBox x:Name="tbDepositumVærktøj" HorizontalAlignment="Left" Height="23" Margin="600,795,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2" />
-        <TextBox x:Name="tbDøgnPrisVærktøj" HorizontalAlignment="Left" Height="23" Margin="600,826,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2" />
-        <Label HorizontalAlignment="Left" Margin="505,675,0,0" VerticalAlignment="Top" Grid.Column="1" Height="10" Width="10" />
-        <Label Content="VærktøjsId:" HorizontalAlignment="Left" Margin="521,675,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="69" />
-        <Label Content="Navn;" HorizontalAlignment="Left" Margin="521,701,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="40" />
-        <Label Content="Beskrivelse" HorizontalAlignment="Left" Margin="521,730,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="68" />
-        <Label Content="Depositum:" HorizontalAlignment="Left" Margin="521,795,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="71" />
-        <Label Content="Døgnpris:" HorizontalAlignment="Left" Margin="521,822,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="61" />
-        <Label Content="Udlejningspris:" HorizontalAlignment="Left" Margin="10,887,0,0" VerticalAlignment="Top" Height="53" Width="312" FontSize="28" FontWeight="Bold" Grid.ColumnSpan="2" />
-        <TextBlock x:Name="tbtotalPris" Grid.Column="1" HorizontalAlignment="Left" Margin="0,896,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="151" FontSize="24" TextAlignment="Center" />
-        <Button x:Name="btnOpdaterStatus" Content="Opdater status" HorizontalAlignment="Left" Margin="82,733,0,0" VerticalAlignment="Top" Width="106" Height="23" Grid.ColumnSpan="2" Background="#FFB6B6B6" BorderBrush="White" Click="btnOpdaterStatus_Click" />
+        <TextBox x:Name="tbKundeId" HorizontalAlignment="Left" Height="23" Margin="85,641,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Grid.ColumnSpan="2" IsReadOnly="True" />
+        <TextBox x:Name="tbVærktøjsId" HorizontalAlignment="Left" Height="23" Margin="85,669,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Grid.ColumnSpan="2" IsReadOnly="True" />
+        <TextBox x:Name="tbTilDato" HorizontalAlignment="Left" Height="23" Margin="85,697,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Grid.ColumnSpan="2" IsReadOnly="True" />
+        <TextBox x:Name="tbFraDato" HorizontalAlignment="Left" Height="23" Margin="85,725,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Grid.ColumnSpan="2" IsReadOnly="True" />
+        <Label HorizontalAlignment="Left" Margin="3,615,0,0" VerticalAlignment="Top" Height="10" Width="10" />
+        <Label Content="UdlejningsId:" HorizontalAlignment="Left" Margin="7,550,0,0" VerticalAlignment="Top" Height="26" Width="79" />
+        <Label Content="Status:" HorizontalAlignment="Left" Margin="7,576,0,0" VerticalAlignment="Top" Height="26" Width="45" />
+        <Label Content="KundeId:" HorizontalAlignment="Left" Margin="7,637,0,0" VerticalAlignment="Top" Height="26" Width="57" />
+        <Label Content="VærktøjsId:" HorizontalAlignment="Left" Margin="7,664,0,0" VerticalAlignment="Top" Height="26" Width="69" />
+        <Label Content="Fra Dato:" HorizontalAlignment="Left" Margin="7,694,0,0" VerticalAlignment="Top" Height="26" Width="58" />
+        <Label Content="UdlejningsId:" HorizontalAlignment="Left" Margin="7,721,0,0" VerticalAlignment="Top" Height="26" Width="79" />
+        <Label Content="Kunde:" HorizontalAlignment="Left" Margin="297.4,523,0,0" VerticalAlignment="Top" Height="53" Width="76" FontSize="14" Grid.Column="1" FontWeight="Bold" />
+        <TextBox x:Name="tbKundeIdFraKunde" HorizontalAlignment="Left" Height="23" Margin="251.4,553,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" />
+        <TextBox x:Name="tbKundeNavn" HorizontalAlignment="Left" Height="23" Margin="251.4,581,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" />
+        <TextBox x:Name="tbAdresse" HorizontalAlignment="Left" Height="23" Margin="251.4,609,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" />
+        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" Height="23" Margin="251.4,637,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" />
+        <Label HorizontalAlignment="Left" Margin="172.4,550,0,0" VerticalAlignment="Top" Grid.Column="1" Height="10" Width="10" />
+        <Label Content="KundeId:" HorizontalAlignment="Left" Margin="172.4,550,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="57" />
+        <Label Content="Navn:" HorizontalAlignment="Left" Margin="172.4,576,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="40" />
+        <Label Content="Adresse:" HorizontalAlignment="Left" Margin="172.4,605,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="54" />
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="172.4,632,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="41" />
+        <Label Content="Værktøj:" HorizontalAlignment="Left" Margin="649.4,523,0,0" VerticalAlignment="Top" Height="53" Width="76" FontSize="14" Grid.Column="1" FontWeight="Bold" />
+        <TextBox x:Name="tbVærktøjsIdFraVærktøj" HorizontalAlignment="Left" Height="23" Margin="603.4,553,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2" />
+        <TextBox x:Name="tbVærktøjsNavn" HorizontalAlignment="Left" Height="23" Margin="603.4,581,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2" />
+        <TextBox x:Name="tbBeskrivelseVærktøj" HorizontalAlignment="Left" Height="51" Margin="603.4,609,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2" />
+        <TextBox x:Name="tbDepositumVærktøj" HorizontalAlignment="Left" Height="23" Margin="603.4,670,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2" />
+        <TextBox x:Name="tbDøgnPrisVærktøj" HorizontalAlignment="Left" Height="23" Margin="603.4,701,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224" Grid.Column="1" IsReadOnly="True" Grid.ColumnSpan="2" />
+        <Label HorizontalAlignment="Left" Margin="508.4,550,0,0" VerticalAlignment="Top" Grid.Column="1" Height="10" Width="10" />
+        <Label Content="VærktøjsId:" HorizontalAlignment="Left" Margin="524.4,550,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="69" />
+        <Label Content="Navn;" HorizontalAlignment="Left" Margin="524.4,576,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="40" />
+        <Label Content="Beskrivelse" HorizontalAlignment="Left" Margin="524.4,605,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="68" />
+        <Label Content="Depositum:" HorizontalAlignment="Left" Margin="524.4,670,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="71" />
+        <Label Content="Døgnpris:" HorizontalAlignment="Left" Margin="524.4,697,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="61" />
+        <Label Content="Udlejningspris:" HorizontalAlignment="Left" Margin="14,762,0,0" VerticalAlignment="Top" Height="53" Width="312" FontSize="28" FontWeight="Bold" Grid.ColumnSpan="2" />
+        <TextBlock x:Name="tbtotalPris" HorizontalAlignment="Left" Margin="1.4,773,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="151" FontSize="24" TextAlignment="Center" Grid.Column="1" />
+        <Button x:Name="btnOpdaterStatus" Content="Opdater status" HorizontalAlignment="Left" Margin="86,608,0,0" VerticalAlignment="Top" Width="106" Height="23" Grid.ColumnSpan="2" Background="#FFB6B6B6" BorderBrush="White" Click="btnOpdaterStatus_Click" />
+        <Button x:Name="btnDeleteUdlejning" Content="Slet udlejning" Grid.Column="1" HorizontalAlignment="Left" Margin="649.4,438,0,0" VerticalAlignment="Top" Width="177" Height="38" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="14" Background="#FFF0F0F0" Click="btnDeleteUdlejning_Click"/>
     </Grid>
 </Window>

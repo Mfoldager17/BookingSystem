@@ -21,7 +21,7 @@ namespace BookingSystem
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int udlejningsIdTilOpdater = 0;
+        private int udlejningsIdTilUpdateEllerDelete = 0;
 
         public MainWindow()
         {
@@ -51,7 +51,7 @@ namespace BookingSystem
                 Værktøj værktøj = db.Værktøj.ToList().Find(v => v.VærktøjId == ul.VærktøjId);
                 Kunde kunde = db.Kunde.ToList().Find(k => k.KundeId == ul.KundeId);
 
-                udlejningsIdTilOpdater = ul.UdlejningsId;
+                udlejningsIdTilUpdateEllerDelete = ul.UdlejningsId;
 
                 tbUdlejningId.Text = ul.UdlejningsId.ToString();
                 combobox.Text = ul.Status;
@@ -81,7 +81,7 @@ namespace BookingSystem
 
             if (gridUdlejninger.SelectedItem != null)
             {
-                Udlejning ul = db.Udlejning.ToList().Find(u => u.UdlejningsId == udlejningsIdTilOpdater);
+                Udlejning ul = db.Udlejning.ToList().Find(u => u.UdlejningsId == udlejningsIdTilUpdateEllerDelete);
                 Kunde kunde = db.Kunde.ToList().Find(k => k.KundeId == ul.KundeId);
 
                 ul.Status = combobox.Text;
@@ -92,6 +92,32 @@ namespace BookingSystem
             else
             {
                 MessageBox.Show("Du skal have valgt en udlejning");
+            }
+        }
+
+        private void btnDeleteUdlejning_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult msgBoxDelete = MessageBox.Show("Er du sikker på du vil slette udlejningen?",
+                "Slet Udlejning", 
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning, 
+                MessageBoxResult.No
+                );
+
+            BookingSystemDbEntities db = new BookingSystemDbEntities();
+
+            if (gridUdlejninger.SelectedItem != null)
+                if(msgBoxDelete == MessageBoxResult.Yes) {
+                    {
+                        Udlejning uldSlettes = db.Udlejning.ToList().Find(u => u.UdlejningsId == udlejningsIdTilUpdateEllerDelete);
+
+                        Kunde kunde = db.Kunde.ToList().Find(k => k.KundeId == uldSlettes.KundeId);
+
+                        db.Udlejning.Remove(uldSlettes);
+                        db.SaveChanges();
+                        gridUdlejninger.ItemsSource = db.Udlejning.ToList().FindAll(u => u.KundeId == uldSlettes.KundeId);
+
+                    }
             }
         }
     }
