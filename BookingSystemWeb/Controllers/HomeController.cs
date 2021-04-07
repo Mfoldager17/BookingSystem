@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookingSystemEF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +9,34 @@ namespace BookingSystemWeb.Controllers
 {
     public class HomeController : Controller
     {
+        private BookingSystemDbEntities db = new BookingSystemDbEntities();
+
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult Index(string email, string password)
         {
-            ViewBag.Message = "Your application description page.";
+            Kunde kunde = db.Kunde.ToList().Find(k => k.Email == email);
 
-            return View();
-        }
+            if (kunde == null)
+            {
+                kunde = new Kunde
+                {
+                    Navn = "dit navn",
+                    Adresse = "din adresse",
+                    Password = password,
+                    Email = email,
+                };
+                db.Kunde.Add(kunde);
+                db.SaveChanges();
+            }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            int id = kunde.KundeId;
+            return RedirectToAction("Edit/" + id, "Kundes");
         }
     }
 }

@@ -11,7 +11,8 @@ namespace BookingSystemEF
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Kunde
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,9 +22,18 @@ namespace BookingSystemEF
         }
     
         public int KundeId { get; set; }
+
+        [Required]
         public string Navn { get; set; }
+
+        [Required]
         public string Adresse { get; set; }
+
+        [Required]
+        [EmailAddress(ErrorMessage = "* A valid email address is required.")]
         public string Email { get; set; }
+
+        [Required]
         public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

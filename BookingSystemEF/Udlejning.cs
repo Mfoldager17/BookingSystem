@@ -11,9 +11,11 @@ namespace BookingSystemEF
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Udlejning
     {
+        
         public int UdlejningsId { get; set; }
         public string Status { get; set; }
         public int KundeId { get; set; }
