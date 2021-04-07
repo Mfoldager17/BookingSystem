@@ -34,6 +34,7 @@ namespace BookingSystem
 
             Kunde kundeFraMail = db.Kunde.ToList().Find(k => k.Email == tbMail.Text.ToLower().Trim());
 
+            // Her et bevis på brug af LINQ
             gridUdlejninger.ItemsSource = (from u in db.Udlejning
                                            where u.KundeId == kundeFraMail.KundeId
                                            select u
@@ -78,13 +79,20 @@ namespace BookingSystem
         {
             BookingSystemDbEntities db = new BookingSystemDbEntities();
 
-            Udlejning ul = db.Udlejning.ToList().Find(u => u.UdlejningsId == udlejningsIdTilOpdater);
-            Kunde kunde = db.Kunde.ToList().Find(k => k.KundeId == ul.KundeId);
+            if (gridUdlejninger.SelectedItem != null)
+            {
+                Udlejning ul = db.Udlejning.ToList().Find(u => u.UdlejningsId == udlejningsIdTilOpdater);
+                Kunde kunde = db.Kunde.ToList().Find(k => k.KundeId == ul.KundeId);
 
-            ul.Status = combobox.Text;
+                ul.Status = combobox.Text;
 
-            db.SaveChanges();
-            gridUdlejninger.ItemsSource = db.Udlejning.ToList().FindAll(u => u.KundeId == ul.KundeId);
+                db.SaveChanges();
+                gridUdlejninger.ItemsSource = db.Udlejning.ToList().FindAll(u => u.KundeId == ul.KundeId);
+            }
+            else
+            {
+                MessageBox.Show("Du skal have valgt en udlejning");
+            }
         }
     }
 }
