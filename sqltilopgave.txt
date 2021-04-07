@@ -30,3 +30,47 @@ CREATE TABLE [dbo].[Værktøj] (
     [døgnpris]     FLOAT (53)    NOT NULL,
     PRIMARY KEY CLUSTERED ([VærktøjId] ASC)
 );
+
+
+Insert into Kunde (Navn, Adresse, Email, Password) 
+Values('Mathias Foldager Andersen', 'Kildeagersøvej 23', 'mathias@gmail.com', 'mathias')
+
+Insert into Kunde (Navn, Adresse, Email, Password) 
+Values('Hans Hansen', 'Hansensgade 23', 'hans@gmail.com', 'hans')
+
+Insert into Kunde (Navn, Adresse, Email, Password) 
+Values('Jens Jensen', 'Jensensgade 27', 'jens@gmail.com', 'jens')
+
+Insert into Værktøj (Værktøjsnavn, Beskrivelse, depositum, døgnpris) 
+Values('Plæneklipper', 'Dette produkt kan du slå dit græs med', 1000, 100)
+
+Insert into Værktøj (Værktøjsnavn, Beskrivelse, depositum, døgnpris) 
+Values('Havetromle', 'Dette produkt kan du tromle din have med', 1500, 50)
+
+Insert into Værktøj (Værktøjsnavn, Beskrivelse, depositum, døgnpris) 
+Values('Motorsav', 'Dette produkt kan du save med', 1700, 150)
+
+Insert into Udlejning (Status, KundeId, VærktøjId, FraDato, TilDato) 
+Values('reserveret', '1', 1, '15-04-2021', '20-04-2021')
+
+Insert into Udlejning (Status, KundeId, VærktøjId, FraDato, TilDato) 
+Values('reserveret', '2', 2, '15-04-2021', '20-04-2021')
+
+Insert into Udlejning (Status, KundeId, VærktøjId, FraDato, TilDato) 
+Values('reserveret', '3', 3, '15-04-2021', '20-04-2021')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

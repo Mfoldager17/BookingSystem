@@ -35,8 +35,13 @@ namespace BookingSystemWeb.Controllers
                 db.SaveChanges();
             }
 
-            int id = kunde.KundeId;
-            return RedirectToAction("Edit/" + id, "Kundes");
+            if(kunde.Password == password)
+            {
+                int id = kunde.KundeId;
+                return RedirectToAction("Edit/" + id, "Kundes");
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }
