@@ -58,7 +58,7 @@ namespace BookingSystemWeb.Controllers
                 udlejning.Status = "reserveret";
                 db.Udlejning.Add(udlejning);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index/" + udlejning.KundeId);
             }
 
             ViewBag.KundeId = new SelectList(db.Kunde, "KundeId", "Navn", udlejning.KundeId);
