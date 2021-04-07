@@ -1,0 +1,32 @@
+Create database BookingSystemDb
+
+CREATE TABLE [dbo].[Kunde] (
+    [KundeId]  INT           IDENTITY (1, 1) NOT NULL,
+    [Navn]     VARCHAR (50)  NOT NULL,
+    [Adresse]  VARCHAR (100) NOT NULL,
+    [Email]    VARCHAR (50)  NOT NULL,
+    [Password] VARCHAR (50)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([KundeId] ASC),
+    UNIQUE NONCLUSTERED ([Adresse] ASC)
+);
+
+CREATE TABLE [dbo].[Udlejning] (
+    [UdlejningsId] INT          IDENTITY (1, 1) NOT NULL,
+    [Status]       VARCHAR (50) NOT NULL,
+    [KundeId]      INT          NOT NULL,
+    [VærktøjId]    INT          NOT NULL,
+    [FraDato]      DATE         NOT NULL,
+    [TilDato]      DATE         NOT NULL,
+    PRIMARY KEY CLUSTERED ([UdlejningsId] ASC),
+    CONSTRAINT [FK_Udlejning_To_Kunde] FOREIGN KEY ([KundeId]) REFERENCES [dbo].[Kunde] ([KundeId]),
+    CONSTRAINT [FK_Udlejning_To_Værktøj] FOREIGN KEY ([VærktøjId]) REFERENCES [dbo].[Værktøj] ([VærktøjId])
+);
+
+CREATE TABLE [dbo].[Værktøj] (
+    [VærktøjId]    INT           IDENTITY (1, 1) NOT NULL,
+    [Værktøjsnavn] VARCHAR (50)  NOT NULL,
+    [Beskrivelse]  VARCHAR (MAX) NOT NULL,
+    [depositum]    FLOAT (53)    NOT NULL,
+    [døgnpris]     FLOAT (53)    NOT NULL,
+    PRIMARY KEY CLUSTERED ([VærktøjId] ASC)
+);
