@@ -41,8 +41,8 @@ namespace BookingSystemWeb.Controllers
         // GET: Udlejnings/Create
         public ActionResult Create()
         {
-            ViewBag.KundeId = new SelectList(db.Kunde, "KundeId", "Navn");
-            ViewBag.VærktøjId = new SelectList(db.Værktøj, "VærktøjId", "Værktøjsnavn");
+           ViewBag.KundeId = new SelectList(db.Kunde, "KundeId", "Navn");
+           ViewBag.VærktøjId = new SelectList(db.Værktøj, "VærktøjId", "Værktøjsnavn");
             return View();
         }
 
