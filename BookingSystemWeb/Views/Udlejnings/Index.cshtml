@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Opret ny udlejning", "Create");
+    @Html.ActionLink("Opret ny udlejning", "Create")
 </p>
 <table class="table">
     <tr>
@@ -48,7 +48,7 @@
                 @Html.DisplayFor(modelItem => item.Værktøj.Værktøjsnavn)
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", new { id = item.UdlejningsId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.UdlejningsId })
             </td>
         </tr>
     }

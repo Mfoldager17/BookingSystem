@@ -41,8 +41,7 @@ namespace BookingSystemWeb.Controllers
         // GET: Udlejnings/Create
         public ActionResult Create()
         {
-           ViewBag.KundeId = new SelectList(db.Kunde, "KundeId", "Navn");
-           ViewBag.VærktøjId = new SelectList(db.Værktøj, "VærktøjId", "Værktøjsnavn");
+            ViewBag.VærktøjId = new SelectList(db.Værktøj, "VærktøjId", "Værktøjsnavn");
             return View();
         }
 
@@ -51,19 +50,47 @@ namespace BookingSystemWeb.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UdlejningsId,KundeId,VærktøjId,FraDato,TilDato")] Udlejning udlejning)
+        public ActionResult Create([Bind(Include = "KundeId,VærktøjId,FraDato,TilDato")] Udlejning udlejning)
         {
             if (ModelState.IsValid)
             {
+                udlejning.KundeId = ((Kunde)Session["kunde"]).KundeId;
                 udlejning.Status = "reserveret";
+                udlejning.Værktøj = db.Værktøj.Find(udlejning.VærktøjId);
+
+                Session["udlejning"] = udlejning;
+                return RedirectToAction("Ordrebekræftelse");
+            }
+
+            // ViewBag.KundeId = new SelectList(db.Kunde, "KundeId", "Navn", udlejning.KundeId);
+            ViewBag.VærktøjId = new SelectList(db.Værktøj, "VærktøjId", "Værktøjsnavn", udlejning.VærktøjId);
+            return View(udlejning);
+        }
+
+        public ActionResult Ordrebekræftelse()
+        {
+            Udlejning udlejning = Session["udlejning"] as Udlejning;
+            if (udlejning != null)
+            {
+                ViewBag.pris = udlejning.beregnFuldPris();
+                return View(udlejning);
+            }
+            return View();
+        }
+
+        public ActionResult PostOrdrebekræftelse()
+        {
+            Udlejning udlejning = Session["udlejning"] as Udlejning;
+            udlejning.Værktøj = null;
+
+            if (udlejning != null)
+            {
                 db.Udlejning.Add(udlejning);
                 db.SaveChanges();
                 return RedirectToAction("Index/" + udlejning.KundeId);
             }
 
-            ViewBag.KundeId = new SelectList(db.Kunde, "KundeId", "Navn", udlejning.KundeId);
-            ViewBag.VærktøjId = new SelectList(db.Værktøj, "VærktøjId", "Værktøjsnavn", udlejning.VærktøjId);
-            return View(udlejning);
+            return View();
         }
 
         protected override void Dispose(bool disposing)

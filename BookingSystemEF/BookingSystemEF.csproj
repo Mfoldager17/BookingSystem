@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Udlejningstest.cs" />
     <Compile Include="Kunde.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

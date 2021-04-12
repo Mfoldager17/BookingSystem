@@ -181,6 +181,7 @@
     <Content Include="Views\Udlejnings\Create.cshtml" />
     <Content Include="Views\Udlejnings\Details.cshtml" />
     <Content Include="Views\Udlejnings\Index.cshtml" />
+    <Content Include="Views\Udlejnings\Ordrebekræftelse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

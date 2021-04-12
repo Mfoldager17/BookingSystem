@@ -44,3 +44,10 @@ C:\Users\mfa01\git\BookingSystem\BookingSystem\obj\Debug\BookingSystem.csproj.Co
 C:\Users\mfa01\git\BookingSystem\BookingSystem\obj\Debug\BookingSystem.csproj.CopyComplete
 C:\Users\mfa01\git\BookingSystem\BookingSystem\obj\Debug\BookingSystem.exe
 C:\Users\mfa01\git\BookingSystem\BookingSystem\obj\Debug\BookingSystem.pdb
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystem\bin\Debug\NUnit3.TestAdapter.dll
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystem\bin\Debug\NUnit3.TestAdapter.pdb
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystem\bin\Debug\nunit.engine.dll
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystem\bin\Debug\nunit.engine.api.dll
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystem\bin\Debug\nunit.engine.core.dll
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystem\bin\Debug\nunit.framework.dll
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystem\bin\Debug\nunit.framework.xml

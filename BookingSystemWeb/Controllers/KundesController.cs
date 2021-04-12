@@ -70,6 +70,7 @@ namespace BookingSystemWeb.Controllers
             {
                 return HttpNotFound();
             }
+            Session["kunde"] = kunde;
             return View(kunde);
         }
 

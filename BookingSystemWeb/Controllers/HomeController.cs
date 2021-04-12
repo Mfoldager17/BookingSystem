@@ -20,7 +20,7 @@ namespace BookingSystemWeb.Controllers
         [HttpPost]
         public ActionResult Index(string email, string password)
         {
-            Kunde kunde = db.Kunde.ToList().Find(k => k.Email == email);
+            Kunde kunde = db.Kunde.ToList().Find(k => k.Email == email.ToLower());
 
             if (kunde == null)
             {
@@ -28,14 +28,16 @@ namespace BookingSystemWeb.Controllers
                 {
                     Navn = "dit navn",
                     Adresse = "din adresse",
-                    Password = password,
-                    Email = email,
+                    Password = password.Trim(),
+                    Email = email.ToLower().Trim(),
                 };
                 db.Kunde.Add(kunde);
                 db.SaveChanges();
             }
 
-            if(kunde.Password == password)
+            Session["kunde"] = kunde;
+
+            if (kunde.Password == password)
             {
                 int id = kunde.KundeId;
                 return RedirectToAction("Edit/" + id, "Kundes");

@@ -177,3 +177,10 @@ C:\Users\mfa01\git\BookingSystem\BookingSystemWeb\bin\nunit.engine.api.dll
 C:\Users\mfa01\git\BookingSystem\BookingSystemWeb\bin\nunit.engine.core.dll
 C:\Users\mfa01\git\BookingSystem\BookingSystemWeb\bin\nunit.framework.dll
 C:\Users\mfa01\git\BookingSystem\BookingSystemWeb\bin\nunit.framework.xml
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemWeb\bin\NUnit3.TestAdapter.dll
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemWeb\bin\NUnit3.TestAdapter.pdb
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemWeb\bin\nunit.engine.dll
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemWeb\bin\nunit.engine.api.dll
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemWeb\bin\nunit.engine.core.dll
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemWeb\bin\nunit.framework.dll
+C:\Users\mfa01\testWPF\BookingSystem\BookingSystemWeb\bin\nunit.framework.xml

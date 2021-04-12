@@ -28,12 +28,12 @@ namespace BookingSystemEF
 
         public double beregnFuldPris()
         {
-            return Convert.ToDouble(this.udregnPeriode() * Værktøj.døgnpris);
+            return Convert.ToDouble(this.udregnPeriode() * Værktøj.døgnpris + Værktøj.depositum);
         }
 
         private int udregnPeriode()
         {
-            return (TilDato.Date - FraDato.Date).Days;
+            return (TilDato.Date - FraDato.Date).Days == 0 ? 1 : (TilDato.Date - FraDato.Date).Days;
         }
 
     }
