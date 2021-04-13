@@ -47,6 +47,10 @@
     </div>
 }
 
+<p>
+    @Html.ActionLink("Tilbage til listen", "Index/" + (int)ViewBag.id)
+</p>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

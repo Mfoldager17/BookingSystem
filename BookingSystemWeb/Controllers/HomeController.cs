@@ -18,32 +18,44 @@ namespace BookingSystemWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string email, string password)
+        [ValidateAntiForgeryToken]
+        public ActionResult Index([Bind(Include = "Email,Password")] Kunde kunde)
         {
-            Kunde kunde = db.Kunde.ToList().Find(k => k.Email == email.ToLower());
-
-            if (kunde == null)
+            if (ModelState.IsValid)
             {
-                kunde = new Kunde
+                Kunde kundeFraDb = db.Kunde.Where(k => k.Email == kunde.Email).FirstOrDefault();
+
+                if (kundeFraDb == null)
                 {
-                    Navn = "dit navn",
-                    Adresse = "din adresse",
-                    Password = password.Trim(),
-                    Email = email.ToLower().Trim(),
-                };
-                db.Kunde.Add(kunde);
-                db.SaveChanges();
+                    kunde.Navn = "";
+                    kunde.Adresse = "";
+                    kunde.Email = kunde.Email.ToLower();
+
+                    kunde = db.Kunde.Add(kunde); // overrider kunde
+                    db.SaveChanges();
+
+                    int id = kunde.KundeId;
+                    Session["kunde"] = kunde;
+
+                    return RedirectToAction("Edit/" + id, "Kundes");
+                }
+                else
+                {
+                    if (kundeFraDb.Password == kunde.Password)
+                    {
+                        int id = kundeFraDb.KundeId;
+                        Session["kunde"] = kundeFraDb;
+                        return RedirectToAction("Edit/" + id, "Kundes");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("Password", "Forkert password til email");
+                        return View(kunde);
+                    }
+                }
             }
 
-            Session["kunde"] = kunde;
-
-            if (kunde.Password == password)
-            {
-                int id = kunde.KundeId;
-                return RedirectToAction("Edit/" + id, "Kundes");
-            }
-
-            return RedirectToAction("Index");
+            return View();
         }
     }
 }

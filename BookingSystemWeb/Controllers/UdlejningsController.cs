@@ -42,6 +42,7 @@ namespace BookingSystemWeb.Controllers
         public ActionResult Create()
         {
             ViewBag.VærktøjId = new SelectList(db.Værktøj, "VærktøjId", "Værktøjsnavn");
+            ViewBag.id = ((Kunde)Session["kunde"]).KundeId;
             return View();
         }
 

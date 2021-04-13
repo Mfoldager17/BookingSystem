@@ -23,10 +23,8 @@ namespace BookingSystemEF
     
         public int KundeId { get; set; }
 
-        [Required]
         public string Navn { get; set; }
 
-        [Required]
         public string Adresse { get; set; }
 
         [Required]
