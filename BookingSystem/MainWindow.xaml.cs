@@ -23,6 +23,8 @@ namespace BookingSystem
     {
         private int udlejningsIdTilUpdateEllerDelete = 0;
 
+        private readonly BookingSystemDbEntities db = new BookingSystemDbEntities();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,27 +32,29 @@ namespace BookingSystem
 
         private void findButton_Click(object sender, RoutedEventArgs e)
         {
-            BookingSystemDbEntities db = new BookingSystemDbEntities();
-
             Kunde kundeFraMail = db.Kunde.ToList().Find(k => k.Email == tbMail.Text.ToLower().Trim());
 
             // Her et bevis på brug af LINQ
-            gridUdlejninger.ItemsSource = (from u in db.Udlejning
-                                           where u.KundeId == kundeFraMail.KundeId
-                                           select u
-                                           ).ToList();
+            if (kundeFraMail != null)
+            {
+                gridUdlejninger.ItemsSource = (from u in db.Udlejning
+                                               where u.KundeId == kundeFraMail.KundeId
+                                               select u
+                                               ).ToList();
+            }
+            else
+                MessageBox.Show("Der findes ingen kunde med denne email", "Ukendt email", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
 
         private void gridUdlejninger_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            BookingSystemDbEntities db = new BookingSystemDbEntities();
-
             if (gridUdlejninger.SelectedItem != null)
             {
                 Udlejning ul = (Udlejning)gridUdlejninger.SelectedItem;
                 Værktøj værktøj = db.Værktøj.ToList().Find(v => v.VærktøjId == ul.VærktøjId);
                 Kunde kunde = db.Kunde.ToList().Find(k => k.KundeId == ul.KundeId);
 
+                // Sætter felt variablen til den valgte udlejnings id, så jeg kan få fat på den i update og delete metoden
                 udlejningsIdTilUpdateEllerDelete = ul.UdlejningsId;
 
                 tbUdlejningId.Text = ul.UdlejningsId.ToString();
@@ -77,8 +81,6 @@ namespace BookingSystem
 
         private void btnOpdaterStatus_Click(object sender, RoutedEventArgs e)
         {
-            BookingSystemDbEntities db = new BookingSystemDbEntities();
-
             if (gridUdlejninger.SelectedItem != null)
             {
                 Udlejning ul = db.Udlejning.ToList().Find(u => u.UdlejningsId == udlejningsIdTilUpdateEllerDelete);
@@ -91,34 +93,34 @@ namespace BookingSystem
             }
             else
             {
-                MessageBox.Show("Du skal have valgt en udlejning");
+                MessageBox.Show("Du skal have valgt en udlejning", "Vælg udlejning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
         private void btnDeleteUdlejning_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult msgBoxDelete = MessageBox.Show("Er du sikker på du vil slette udlejningen?",
-                "Slet Udlejning", 
+                "Slet Udlejning",
                 MessageBoxButton.YesNo,
-                MessageBoxImage.Warning, 
+                MessageBoxImage.Warning,
                 MessageBoxResult.No
                 );
 
-            BookingSystemDbEntities db = new BookingSystemDbEntities();
-
             if (gridUdlejninger.SelectedItem != null)
-                if(msgBoxDelete == MessageBoxResult.Yes) {
-                    {
-                        Udlejning uldSlettes = db.Udlejning.ToList().Find(u => u.UdlejningsId == udlejningsIdTilUpdateEllerDelete);
+            {
+                if (msgBoxDelete == MessageBoxResult.Yes)
+                {
+                    Udlejning uldSlettes = db.Udlejning.ToList().Find(u => u.UdlejningsId == udlejningsIdTilUpdateEllerDelete);
 
-                        Kunde kunde = db.Kunde.ToList().Find(k => k.KundeId == uldSlettes.KundeId);
+                    Kunde kunde = db.Kunde.ToList().Find(k => k.KundeId == uldSlettes.KundeId);
 
-                        db.Udlejning.Remove(uldSlettes);
-                        db.SaveChanges();
-                        gridUdlejninger.ItemsSource = db.Udlejning.ToList().FindAll(u => u.KundeId == uldSlettes.KundeId);
-
-                    }
+                    db.Udlejning.Remove(uldSlettes);
+                    db.SaveChanges();
+                    gridUdlejninger.ItemsSource = db.Udlejning.ToList().FindAll(u => u.KundeId == uldSlettes.KundeId);
+                }
             }
+            else
+                MessageBox.Show("Du skal have valgt en udlejning", "Vælg udlejning", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
     }
 }
