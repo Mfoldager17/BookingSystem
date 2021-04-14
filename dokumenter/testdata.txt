@@ -1,0 +1,57 @@
+
+Insert into Kunde (Navn, Adresse, Email, Password) 
+Values('Mathias Foldager Andersen', 'Kildeagersøvej 23', 'mathias@gmail.com', 'mathias')
+
+Insert into Kunde (Navn, Adresse, Email, Password) 
+Values('Hans Hansen', 'Hansensgade 23', 'hans@gmail.com', 'hans')
+
+Insert into Kunde (Navn, Adresse, Email, Password) 
+Values('Jens Jensen', 'Jensensgade 27', 'jens@gmail.com', 'jens')
+
+Insert into Værktøj (Værktøjsnavn, Beskrivelse, depositum, døgnpris) 
+Values('Plæneklipper', 'Dette produkt kan du slå dit græs med', 1000, 100)
+
+Insert into Værktøj (Værktøjsnavn, Beskrivelse, depositum, døgnpris) 
+Values('Havetromle', 'Dette produkt kan du tromle din have med', 1500, 50)
+
+Insert into Værktøj (Værktøjsnavn, Beskrivelse, depositum, døgnpris) 
+Values('Motorsav', 'Dette produkt kan du save med', 1700, 150)
+
+Insert into Værktøj (Værktøjsnavn, Beskrivelse, depositum, døgnpris) 
+Values('Hækkeklipper', 'Dette produkt kan du klippe din hæk med', 1000, 300)
+
+Insert into Udlejning (Status, KundeId, VærktøjId, FraDato, TilDato) 
+Values('reserveret', '1', 1, '2021-04-15', '2021-04-20')
+
+Insert into Udlejning (Status, KundeId, VærktøjId, FraDato, TilDato) 
+Values('reserveret', '2', 1, '2021-04-21', '2021-04-23')
+
+Insert into Udlejning (Status, KundeId, VærktøjId, FraDato, TilDato) 
+Values('reserveret', '3', 1, '2021-04-24', '2021-04-27')
+
+Insert into Udlejning (Status, KundeId, VærktøjId, FraDato, TilDato) 
+Values('reserveret', '1', 2, '2021-04-12', '2021-04-14')
+
+Insert into Udlejning (Status, KundeId, VærktøjId, FraDato, TilDato) 
+Values('reserveret', '2', 2, '2021-04-15', '2021-04-20')
+
+Insert into Udlejning (Status, KundeId, VærktøjId, FraDato, TilDato) 
+Values('reserveret', '3', 2, '2021-04-21', '2021-04-25')
+
+Insert into Udlejning (Status, KundeId, VærktøjId, FraDato, TilDato) 
+Values('reserveret', '1', 3, '2021-04-12', '2021-04-14')
+
+Insert into Udlejning (Status, KundeId, VærktøjId, FraDato, TilDato) 
+Values('reserveret', '2', 3, '2021-04-15', '2021-04-20')
+
+Insert into Udlejning (Status, KundeId, VærktøjId, FraDato, TilDato) 
+Values('reserveret', '3', 3, '2021-04-25', '2021-04-27')
+
+Insert into Udlejning (Status, KundeId, VærktøjId, FraDato, TilDato) 
+Values('reserveret', '1', 4, '2021-04-12', '2021-04-14')
+
+Insert into Udlejning (Status, KundeId, VærktøjId, FraDato, TilDato) 
+Values('reserveret', '2', 4, '2021-04-15', '2021-04-19')
+
+Insert into Udlejning (Status, KundeId, VærktøjId, FraDato, TilDato) 
+Values('reserveret', '3', 4, '2021-04-20', '2021-04-29')
